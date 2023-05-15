@@ -1,0 +1,14 @@
+.registration__link {
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+  
+  .registration__link:hover {
+    cursor: pointer;
+    opacity: 0.6;
+  }
+  

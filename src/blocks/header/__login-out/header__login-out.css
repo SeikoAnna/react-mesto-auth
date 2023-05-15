@@ -1,0 +1,17 @@
+.header__login-out {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 22px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.2s;
+    color: #a9a9a9;
+    background: transparent;
+  }
+  
+  .header__login-outt:hover {
+    opacity: 0.6;
+  }
+  

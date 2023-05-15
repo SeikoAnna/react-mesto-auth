@@ -1,0 +1,10 @@
+.header__ident {
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .header__ident:hover {
+    opacity: 0.6;
+  }

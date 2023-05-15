@@ -1,0 +1,10 @@
+.element__picture {
+    min-width: 282px;
+    max-height: 282px;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    display: block;
+    object-position: center;
+    object-fit: cover;
+}
