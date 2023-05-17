@@ -1,39 +1,15 @@
-import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
-import * as auth from '../utils/auth.js';
+import { useForm } from "../hooks/useForm.js";
 
-export default function Login ({
-  handleLoggedIn,
-})
-{
- 
-  const navigate = useNavigate();
+export default function Login({ onLogin }) {
+  const { formValue, handleChange } = useForm({
+    email: "",
+    password: "",
+  });
 
-  const [formValue, setFormValue] = useState({
-    email: '',
-    password: ''
-  })
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setFormValue({
-      ...formValue,
-      [name]: value
-    })
-  }
-
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
-    auth.authorization(formValue.email, formValue.password)
-      .then((data) => {
-        if (data) {
-          handleLoggedIn();
-          setFormValue({ email: '', password: '' });
-          navigate('/', { replace: true });
-        }
-      })
-      .catch(err => console.log(err));
+
+    onLogin(formValue);
   }
 
   return (
@@ -47,7 +23,7 @@ export default function Login ({
           name="email"
           minLength="5"
           maxLength="40"
-          value={formValue.email}        
+          value={formValue.email}
           onChange={handleChange}
           required
         ></input>
@@ -58,12 +34,12 @@ export default function Login ({
           name="password"
           minLength="2"
           maxLength="100"
-          value={formValue.password} 
+          value={formValue.password}
           onChange={handleChange}
-          required          
+          required
         ></input>
         <button className="registration__button">Войти</button>
       </form>
     </div>
-  )
+  );
 }

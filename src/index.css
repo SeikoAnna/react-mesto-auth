@@ -48,6 +48,7 @@
 @import url(./blocks/popup/__input-error/_active/popup__input-error_active.css);
 @import url(./blocks/popup/__input/_type_error/popup__input_type_error.css);
 @import url(./blocks/popup/__picture/popup__picture.css);
+@import url(./blocks/popup/__title/_info/popup__title_info.css);
 
 @import url(./blocks/element/__like_container/element__like_container.css);
 @import url(./blocks/element/__like_amount/element__like_amount.css);
@@ -61,20 +62,3 @@
 @import url(./blocks/registration/__input/registration__input.css);
 @import url(./blocks/registration/__button/registration__button.css);
 @import url(./blocks/registration/__link/registration__link.css);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

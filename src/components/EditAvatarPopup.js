@@ -45,7 +45,7 @@ export default function EditAvatarPopup({
     >
       <input
         type="url"
-        className="popup__occupation link popup__input popup__input_link"
+        className="popup__input popup__input_link"
         name="avatar"
         placeholder="Ссылка на картинку"
         id="link-avatar"

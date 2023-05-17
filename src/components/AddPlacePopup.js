@@ -19,13 +19,14 @@ export default function AddPlacePopup({
   const [errorMessageLink, setErrorMessageLink] = useState("");
 
   useEffect(() => {
+    if (isOpen) return;
     setErrorMessageName("");
     setErrorMessageLink("");
     setCardName("");
     setCardLink("");
     name.setInputValid(true);
     link.setInputValid(true);
-  }, [onClose, onUpdateCard]);
+  }, [onClose, onUpdateCard, isOpen]);
 
   function handleCardNameChange(e) {
     setCardName(e.target.value);

@@ -3,6 +3,8 @@
     line-height: 22px;
     color: #fff;
     text-decoration: none;
+    text-align: right;
+    transition: 0.2s;
   }
   
   .header__ident:hover {

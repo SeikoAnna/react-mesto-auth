@@ -1,57 +1,17 @@
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import * as auth from '../utils/auth.js';
-import InfoTooltip from './InfoTooltip.js';
+import { Link } from "react-router-dom";
+import { useForm } from "../hooks/useForm.js";
 
-export default function Register() {
-  
-  const [isInfoTooltipPopupOpen, setInfoTooltipPopupOpen] = useState(false);
-
-  function closePopup() {
-    setInfoTooltipPopupOpen(false);
-  }
-
-  const [isRegister, setRegister] = useState({
-    status: '',
-    message: ''
+const Register = ({ onRegister, onInfoTooltipClick }) => {
+  const { formValue, handleChange } = useForm({
+    email: "",
+    password: "",
   });
-
-  const [formValue, setFormValue] = useState({
-    email: '',
-    password: ''
-  })
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-
-    setFormValue({
-      ...formValue,
-      [name]: value
-    })
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    auth.register(formValue.email, formValue.password)
-      .then((res) => {
-        if (res.data) {
-          setFormValue({ email: '', password: '' });
-          setInfoTooltipPopupOpen(true);
-          setRegister({
-            status: true,
-            name: "registration",
-            message: 'Вы успешно зарегистрировались!'
-          })
-        } else {
-          setInfoTooltipPopupOpen(true);
-          setRegister({
-            status: false,
-            message: 'Что-то пошло не так! Попробуйте еще раз'
-          })
-        };
-      })
-      .catch(err => console.log(err))
-  }
+    onRegister(formValue);
+    onInfoTooltipClick();
+  };
 
   return (
     <>
@@ -68,10 +28,10 @@ export default function Register() {
             onChange={handleChange}
             value={formValue.email}
             required
-            ></input>
+          ></input>
           <input
             className="registration__input"
-            name="password" 
+            name="password"
             placeholder="Пароль"
             type="password"
             minLength="2"
@@ -79,18 +39,15 @@ export default function Register() {
             onChange={handleChange}
             value={formValue.password}
             required
-           ></input>
+          ></input>
           <button className="registration__button">Зарегистрироваться</button>
           <Link className="registration__link" to="/sign-in">
             Уже зарегистрированы? Войти
           </Link>
         </form>
       </div>
-      <InfoTooltip
-        isOpen={isInfoTooltipPopupOpen}
-        onClose={closePopup}
-        isRegister={isRegister}
-      />
     </>
-  )
-}
+  );
+};
+
+export default Register;
